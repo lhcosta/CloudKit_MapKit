@@ -13,6 +13,10 @@
 		A4163C532360BE97004D6771 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4163C512360BE97004D6771 /* Main.storyboard */; };
 		A4163C552360BE9A004D6771 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4163C542360BE9A004D6771 /* Assets.xcassets */; };
 		A4163C582360BE9A004D6771 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4163C562360BE9A004D6771 /* LaunchScreen.storyboard */; };
+		A4163C622360BEB6004D6771 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4163C612360BEB6004D6771 /* CloudKit.framework */; };
+		A4163C642360C511004D6771 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4163C632360C511004D6771 /* Database.swift */; };
+		A4163C662360C99E004D6771 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4163C652360C99E004D6771 /* Country.swift */; };
+		A4163C682360CCAA004D6771 /* LocationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4163C672360CCAA004D6771 /* LocationConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,11 @@
 		A4163C542360BE9A004D6771 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4163C572360BE9A004D6771 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4163C592360BE9A004D6771 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4163C5F2360BEAF004D6771 /* CloudKit_MapKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloudKit_MapKit.entitlements; sourceTree = "<group>"; };
+		A4163C612360BEB6004D6771 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		A4163C632360C511004D6771 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		A4163C652360C99E004D6771 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		A4163C672360CCAA004D6771 /* LocationConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4163C622360BEB6004D6771 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +52,7 @@
 			children = (
 				A4163C4A2360BE97004D6771 /* CloudKit_MapKit */,
 				A4163C492360BE97004D6771 /* Products */,
+				A4163C602360BEB6004D6771 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +67,27 @@
 		A4163C4A2360BE97004D6771 /* CloudKit_MapKit */ = {
 			isa = PBXGroup;
 			children = (
+				A4163C5F2360BEAF004D6771 /* CloudKit_MapKit.entitlements */,
 				A4163C4B2360BE97004D6771 /* AppDelegate.swift */,
 				A4163C4D2360BE97004D6771 /* SceneDelegate.swift */,
+				A4163C632360C511004D6771 /* Database.swift */,
+				A4163C652360C99E004D6771 /* Country.swift */,
 				A4163C4F2360BE97004D6771 /* ViewController.swift */,
 				A4163C512360BE97004D6771 /* Main.storyboard */,
+				A4163C672360CCAA004D6771 /* LocationConfiguration.swift */,
 				A4163C542360BE9A004D6771 /* Assets.xcassets */,
 				A4163C562360BE9A004D6771 /* LaunchScreen.storyboard */,
 				A4163C592360BE9A004D6771 /* Info.plist */,
 			);
 			path = CloudKit_MapKit;
+			sourceTree = "<group>";
+		};
+		A4163C602360BEB6004D6771 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4163C612360BEB6004D6771 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +163,10 @@
 			files = (
 				A4163C502360BE97004D6771 /* ViewController.swift in Sources */,
 				A4163C4C2360BE97004D6771 /* AppDelegate.swift in Sources */,
+				A4163C642360C511004D6771 /* Database.swift in Sources */,
+				A4163C662360C99E004D6771 /* Country.swift in Sources */,
 				A4163C4E2360BE97004D6771 /* SceneDelegate.swift in Sources */,
+				A4163C682360CCAA004D6771 /* LocationConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +310,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CloudKit_MapKit/CloudKit_MapKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3H798M6N3T;
 				INFOPLIST_FILE = CloudKit_MapKit/Info.plist;
@@ -302,6 +329,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CloudKit_MapKit/CloudKit_MapKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3H798M6N3T;
 				INFOPLIST_FILE = CloudKit_MapKit/Info.plist;
