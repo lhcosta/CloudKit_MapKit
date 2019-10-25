@@ -11,6 +11,7 @@ import UIKit
 import CoreLocation
 import CloudKit
 
+
 struct Country {
     
     //MARK:- Properties

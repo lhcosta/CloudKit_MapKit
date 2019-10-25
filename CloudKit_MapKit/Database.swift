@@ -50,7 +50,9 @@ struct Database {
                 return
             }
           
-            self.delegate?.didFinishLoadingRecords(records: records)
+            DispatchQueue.main.async {
+                self.delegate?.didFinishLoadingRecords(records: records)
+            }
         }
         
         self.database.add(queryOperation)

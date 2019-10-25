@@ -25,7 +25,7 @@ class LocationConfiguration : NSObject {
         
     }
     
-    func checkLocationAuthorization() {
+    private func checkLocationAuthorization() {
         
         switch CLLocationManager.authorizationStatus() {
             case .authorizedWhenInUse:

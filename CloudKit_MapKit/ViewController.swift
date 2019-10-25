@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     //MARK:- IBOutlets
     @IBOutlet private weak var mapView : MKMapView!
     
+    //MARK:- Properties
     private var locationConfiguration : LocationConfiguration!
     private var locationManager : CLLocationManager!
     private var databaseCloud : Database!
@@ -38,6 +39,7 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK:- DatabaseDelegate
 extension ViewController : DatabaseDelegate {
     
     func didFinishLoadingRecords(records: [CKRecord]) {
@@ -49,14 +51,14 @@ extension ViewController : DatabaseDelegate {
             let annotation = MKPointAnnotation()
             annotation.coordinate = country.location.coordinate
             annotation.title = country.name
+            
             self?.countries.append(country)
-                        
             self?.mapView.addAnnotation(annotation)
         }
-        
     }
 }
 
+//MARK:- MKMapViewDelegate
 extension ViewController : MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -65,7 +67,6 @@ extension ViewController : MKMapViewDelegate {
         
         annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "Annotation")
         annotationView?.canShowCallout = true
-        
         guard let title = annotation.title as? String else {return nil}
                 
         let country = self.countries.first {(country) -> Bool in
@@ -78,9 +79,31 @@ extension ViewController : MKMapViewDelegate {
         
         return annotationView
     }
-     
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        guard let flag = view.image else {return}
+        
+        UIView.animate(withDuration: 2, delay: 0, options: .curveEaseOut, animations: { 
+            guard let new_image = flag.resizeImage(size: CGSize(width: 60, height: 60)) else {return}
+            view.image = new_image
+        }, completion: nil)
+    }
+        
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        
+        guard let flag = view.image else {return}
+               
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: { 
+           guard let new_image = flag.resizeImage(size: CGSize(width: 30, height: 30)) else {return}
+           view.image = new_image
+        }, completion: nil)
+    }
+    
 }
 
+
+//MARK:- Extensions
 extension UIImage {
     
     func resizeImage(size : CGSize) -> UIImage? {
